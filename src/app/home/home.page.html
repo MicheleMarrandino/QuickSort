@@ -1,0 +1,47 @@
+<ion-content id="body">
+  <ion-grid>
+    <ion-row >
+      <ion-col>
+        <ion-card-content class="intro-wrapper">
+        <h1 class="title">Quicksort</h1>
+        <div class="description-container">
+          <p class="description">
+          <b>Quicksort is one of the most well-known in-place performant sorting algorithm.</b><br>
+            It works by selecting a 'pivot' element from the array and partitioning the other elements<br>
+            into two sub-arrays, using recursion.
+          </p>
+        </div>
+        </ion-card-content>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <div class="array-size-container">
+           <ng-container *ngIf="f" >
+             <p class="directive">Please, choose the array size.<br><b>Make sure to hit 'Enter' when you're done.</b></p>
+             <ion-item id="size-array">
+               <ion-input autofocus [ngModel]="size" (keydown.enter)="getSize($event)" type="number" position="floating" inputmode="numeric" [max]="max" [min]="min" color="primary">
+              </ion-input>
+            </ion-item>
+            <p class="directive">Minimum number is: <b>{{min}}</b><br>Maximum number is: <b>{{max}}</b></p>
+          </ng-container>
+        </div>
+        </ion-row>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <div class="container-nums" *ngFor="let x of space()">
+            <ion-col class="ion-item no-lines no-padding text-center col-2">
+              <input class="input" type="number" #input (keydown.enter)="onWrite(x)" [(ngModel)]="a[x]" [disabled]="x === 0 ? false : true" required="true">
+            </ion-col>
+          </div>
+        </ion-row>
+        <ion-row class="ion-align-items-center ion-justify-content-center" >
+          <div *ngIf="!f && !f2">
+            <p class="directive"><b>Make sure to hit 'Enter' after filling the cells.</b></p>
+          </div>
+       <div class="buttons" *ngIf="f2" >
+         <ion-button (click)="whichSort(1)" small color="warning"><b><< descending order</b></ion-button>
+         <ion-button (click)="cleanAll()" small color="primary"><b>Let's do it again!</b></ion-button>
+         <ion-button (click)="whichSort(0)" small color="warning"><b>ascending order >></b></ion-button>
+       </div>
+     </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
