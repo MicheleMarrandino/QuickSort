@@ -102,3 +102,17 @@ input[disabled]{
 .buttons{
   margin-top:3em;
 }
+
+.gap{
+  gap: 0.6rem;
+}
+
+.badge{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 20.5em;
+  white-space: pre;
+  padding-bottom: 0.4em;
+};
+

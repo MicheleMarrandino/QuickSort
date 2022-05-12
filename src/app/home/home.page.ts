@@ -9,12 +9,13 @@ export class HomePage {
   @ViewChildren('input') inputs: QueryList<ElementRef>;
 
   size: number;
-  min = 3;
-  max = 10;
+  min = 2;
+  max = 60;
   f = true;
   a: number[] = [];
   f2=false;
   b: number[] = [];
+  runtime: number;
 
   constructor() {}
 
@@ -75,6 +76,7 @@ export class HomePage {
   }
 
   quickSort(arr, start, end, n) {
+    const p0=performance.now();
     let p;
 
     if(arr.length > 1){
@@ -89,7 +91,7 @@ export class HomePage {
       }
 
     }
-
+    this.runtime = Number((performance.now() - p0).toPrecision(2));
     return arr;
   }
 
