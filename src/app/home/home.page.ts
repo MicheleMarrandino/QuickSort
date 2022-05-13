@@ -60,6 +60,7 @@ export class HomePage {
     this.f2 = false;
     this.size = undefined;
     this.b = [];
+    this.runtime = undefined;
   }
 
   space() {
